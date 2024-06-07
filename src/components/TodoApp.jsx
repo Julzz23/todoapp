@@ -1,23 +1,49 @@
 import React, { useState } from "react";
-import { Typography, Container } from "@mui/material";
+import { Typography } from "@mui/material";
 import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
 
-  const addTodo = (newTodo) => {
-    setTodos([...todos, newTodo]);
+  const handleAddTodo = (newTodo) => {
+    setTodos([...todos, { text: newTodo, completed: false }]);
   };
 
+
   return (
-    <Container fixed>
-      <Typography variant='h3' gutterBottom sx={{ textAlign: "center" }}>
-        Todo App
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        width: "100%",
+      }}
+    >
+      <Typography variant="h2" component="h1" gutterBottom>
+        To do App
       </Typography>
-      <AddTodo onAddTodo={addTodo} />
-      <TodoList todos={todos} />
-    </Container>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "2em",
+          border: "1px solid black",
+          borderBottom: "none",
+          padding: "2em",
+          margin: "0 auto",
+          width: "80%",
+          height: "75vh",
+        }}
+      >
+        <AddTodo onAddTodo={handleAddTodo} />
+        <TodoList todos={todos} />
+      </div>
+    </div>
   );
 };
 

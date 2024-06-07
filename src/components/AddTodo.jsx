@@ -1,46 +1,41 @@
 import React, { useState } from "react";
-import { Button, TextField } from "@mui/material";
+import { TextField, Fab } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
+
 
 const AddTodo = ({ onAddTodo }) => {
   const [newTodo, setNewTodo] = useState("");
 
   const handleAddTodo = () => {
+    //comprobacion de tarea existente
     if (newTodo.trim() !== "") {
       onAddTodo(newTodo);
       setNewTodo("");
     }
+
   };
+  
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: "1em",
-        maxWidth: "600px",
-        margin: "auto",
-        height: "4em",
-      }}
-    >
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '2em',
+      width: '50%'
+    }}>
       <TextField
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
-        label="Anadir tarea"
+        label="Añadir tarea"
         variant="outlined"
-        margin="normal"
-        style={{ flex: 3, width: "70%" }} // Asegura que TextField sea más largo que Button
+        style={{ width: '80%' }}
+        multiline
       />
-      <Button
-        onClick={handleAddTodo}
-        variant="outlined"
-        color="primary"
-        style={{ flex: 1, width: "30%" }}
-      >
-        Add
-      </Button>
+      <Fab color="primary" aria-label="add" onClick={handleAddTodo}>
+        <AddIcon />
+      </Fab>
     </div>
   );
-};
+}
 
 export default AddTodo;

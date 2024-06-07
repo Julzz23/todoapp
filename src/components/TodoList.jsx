@@ -1,13 +1,17 @@
-
-import React from 'react';
-import { ListItem, ListItemText } from '@mui/material';
-
-const TodoItem = ({ todo }) => {
+const TodoList = ({ todos, toggleTodo }) => {
   return (
-    <ListItem>
-      <ListItemText primary={todo} />
-    </ListItem>
+    <div>
+      {todos.map((todo, index) => (
+        <div 
+          key={index} 
+          onClick={() => toggleTodo(index)}
+          style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+        >
+          {todo.text}
+        </div>
+      ))}
+    </div>
   );
 };
 
-export default TodoItem;
+export default TodoList;
