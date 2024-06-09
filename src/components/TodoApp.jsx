@@ -99,7 +99,7 @@ const TodoApp = () => {
           right: "10px",
           bottom: "10px",
           fontSize: "1em",
-          color: "rgba(0, 0, 0, 0.1)",
+          color: theme === 'dark' ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)",
           zIndex: -1,
           filter: "blur(1px)",
         }}
