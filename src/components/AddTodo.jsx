@@ -7,7 +7,7 @@ const AddTodo = ({ onAddTodo }) => {
   const [newTodo, setNewTodo] = useState("");
 
   const handleAddTodo = () => {
-    //comprobacion de tarea existente
+   
     if (newTodo.trim() !== "") {
       onAddTodo(newTodo);
       setNewTodo("");
