@@ -13,7 +13,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { CssBaseline, Box, IconButton } from "@mui/material";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
-
+import Signature from "./components/Signature";
 import TodoApp from "./components/TodoApp";
 
 function App() {
@@ -28,6 +28,8 @@ function App() {
   const toggleColorMode = () => {
     setDarkMode(!darkMode);
   };
+  const signatureColor = theme.palette.mode === 'dark' ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.1)";
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -53,6 +55,7 @@ function App() {
         </IconButton>
       </Box>
       <TodoApp darkMode={darkMode} />
+      <Signature color={signatureColor} />
     </ThemeProvider>
   );
 }

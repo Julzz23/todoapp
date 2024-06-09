@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Typography, useTheme } from "@mui/material";
 import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
+import Signature from "./Signature";
 
 const TodoApp = () => {
   const [todos, setTodos] = useState(() => {
@@ -14,6 +15,10 @@ const TodoApp = () => {
   });
 
   const theme = useTheme();
+  const signatureColor =
+    theme.palette.type === "dark"
+      ? "rgba(255, 255, 255, 0.5)"
+      : "rgba(0, 0, 0, 0.5)";
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -93,19 +98,7 @@ const TodoApp = () => {
           deleteTodo={deleteTodo}
         />
       </div>
-      <div
-        style={{
-          position: "fixed",
-          right: "10px",
-          bottom: "10px",
-          fontSize: "1em",
-          color: theme === 'dark' ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)",
-          zIndex: -1,
-          filter: "blur(1px)",
-        }}
-      >
-        by Julian Stravitz
-      </div>
+      <Signature color={signatureColor} />
     </div>
   );
 };
