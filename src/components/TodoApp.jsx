@@ -64,11 +64,11 @@ const TodoApp = () => {
         component="h1"
         gutterBottom
         sx={{
-          color: "primary", // Cambia esto al color que prefieras
+          color: "primary", 
           transition: "all 0.3s ease-in-out",
           "&:hover": {
-            color: "", // Cambia esto al color que prefieras para el hover
-            transform: "scale(1.1)", // Aumenta el tamaño del texto
+            color: "", 
+            transform: "scale(1.1)", 
           },
         }}
       >
@@ -81,7 +81,7 @@ const TodoApp = () => {
           flexDirection: "column",
           alignItems: "center",
           gap: "2em",
-          border: `1px solid ${theme.palette.secondary.main}`, // Usa el color del divisor del tema actual
+          border: `1px solid ${theme.palette.secondary.main}`,
           borderBottom: "none",
           padding: "2em",
           margin: "0 auto",
