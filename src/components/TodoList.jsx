@@ -20,17 +20,29 @@ const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
             padding: "0.1em",
             borderRadius: "5px",
             backgroundColor: theme.palette.background.paper,
+            display: "flex",
+            alignItems: "center",
           }}
         >
-          <span style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
+          <span
+            style={{flex:1, textDecoration: todo.completed ? "line-through" : "none" }}
+          >
             {todo.text}
           </span>
-          <IconButton onClick={() => toggleTodo(index)} style={{ color: "green" }}>
-            <CheckIcon />
-          </IconButton>
-          <IconButton onClick={() => deleteTodo(index)} style={{ color: "red" }}>
-            <CloseIcon />
-          </IconButton>
+          <div>
+            <IconButton
+              onClick={() => toggleTodo(index)}
+              style={{ color: "green" }}
+            >
+              <CheckIcon />
+            </IconButton>
+            <IconButton
+              onClick={() => deleteTodo(index)}
+              style={{ color: "red" }}
+            >
+              <CloseIcon />
+            </IconButton>
+          </div>
         </div>
       ))}
     </div>
